@@ -17,11 +17,13 @@ const getProdutos = async () => {
 function criarCardProdutos(produto){
     const card = document.createElement('div')
     card.className = 'card'
+    const fotoProduto = document.createElement('img')
+    fotoProduto.src = produto.foto
     const nomeProduto = document.createElement('h2')
     nomeProduto.textContent = produto.nome
     const precoProduto = document.createElement('p')
     precoProduto.textContent = `R$${produto.preco} `
-    card.replaceChildren(nomeProduto, precoProduto)
+    card.replaceChildren(fotoProduto, nomeProduto, precoProduto)
     return card
 }
 
@@ -48,7 +50,7 @@ function  criarCardFuncionarios(funcionario){
 // }
 
 async function preencherGaleriaDeProdutos(listaProdutos) {
-  const galeria = document.getElementById('teste')
+  const galeria = document.getElementById('produtos')
   const repositorio = listaProdutos || await getProdutos()
   const cards = repositorio.map(criarCardProdutos)
 
