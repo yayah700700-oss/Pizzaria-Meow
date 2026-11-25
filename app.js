@@ -28,26 +28,47 @@ function criarCardProdutos(produto){
 }
 
 function  criarCardFuncionarios(funcionario){
-    const card = document.createElement('ul')
-    card.className = 'card'
-    const id = document.createElement('li')
-    id.textContent = `ID do Funcionario: ${funcionario.id}`
-    const nome = document.createElement('li')
+    const cardFuncionario = document.createElement('div')
+    cardFuncionario.className = 'cardFuncionario'
+    const foto = document.createElement('img')
+    foto.src = funcionario.foto
+    const nome = document.createElement('h4')
     nome.textContent = funcionario.nome
-    const cargo = document.createElement('li')
+    const id = document.createElement('p')
+    id.textContent = `ID do Funcionario: ${funcionario.id}`
+    const cargo = document.createElement('p')
     cargo.textContent = funcionario.cargo
+    const senha = document.createElement('input')
+    senha.type = 'text'
+    senha.placeholder = 'Digite a senha aqui:'
+    const buttonConfirmar = document.createElement('button')
+    buttonConfirmar.textContent = 'Confirmar'
 
-    card.replaceChildren(id, nome, cargo)
-    return card
+    cardFuncionario.replaceChildren(foto, nome, id, cargo, senha, buttonConfirmar)
+    return cardFuncionario
 }
 
-// async function preencherGaleriaDeTodas() {
-//   const galeria = document.getElementById('teste')
-//   const repositorio = await getFuncionarios()
-//   const cards = repositorio.map(criarCardFuncionarios)
+async function preencherGaleriaDeFuncionarios() {
+  const galeria = document.getElementById('funcionarios')
+  galeria.style.display = "flex"
+  const repositorio = await getFuncionarios()
+  const cards = repositorio.map(criarCardFuncionarios)
 
-//   galeria.replaceChildren(...cards)
-// }
+  galeria.replaceChildren(...cards)
+}
+
+const funcionarios = document.getElementById('funcionarios')
+const sairDeFuncionarios = document.getElementById('sairDeFuncionarios')
+
+sairDeFuncionarios.onclick = () => {
+    funcionarios.style.display = "none"
+}
+
+const buttonFuncionarios = document.getElementById('buttonFuncionarios')
+
+buttonFuncionarios.onclick = () => {
+    preencherGaleriaDeFuncionarios()
+}
 
 async function preencherGaleriaDeProdutos(listaProdutos) {
   const galeria = document.getElementById('produtos')
