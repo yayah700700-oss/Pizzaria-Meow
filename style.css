@@ -3,13 +3,13 @@
     padding: 0;
     box-sizing: border-box;
 }
-#produtos{
+#produtos, #estoque{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
 }
-#funcionarios{
+#funcionarios, #modalEditar, #modalAdicionarProduto{
     display: none;
     position: fixed;
     top: 0;
@@ -19,10 +19,9 @@
     background-color: rgba(0, 0, 0, 0.5);
     align-items: center;
     justify-content: center;
-    /* z-index: 1; */
     gap: 20px;
 }
-.card, .cardFuncionario{
+.card, .cardFuncionario, #cardEditar, #cardAdicionarProduto{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,7 +32,7 @@
     border-radius: 5%;
     background-color: white;
 }
-.card{
+.card, #cardEditar, #cardAdicionarProduto{
     width: 300px;
     height: 300px;
 }
@@ -53,4 +52,7 @@
 #sairDeFuncionarios{
     display: flex;
     justify-content: flex-end;
+}
+#buttonAdicionarProduto{
+    display: none;
 }

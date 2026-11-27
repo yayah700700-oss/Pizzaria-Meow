@@ -26,10 +26,28 @@
             <option value="Carne">Carne</option>
         </select>
         <button id="buttonFuncionarios">Tela para Funcionarios</button>
+        <button id="buttonAdicionarProduto">Adicionar produto</button>
     </header>
     <main>
         <div id="funcionarios"><button id="sairDeFuncionarios">Sair</button></div>
         <div id="produtos"></div>
+        <div id="estoque"></div>
+        <div id="modalEditar">
+            <div id="cardEditar">
+                <label for="">Nome do produto:<input type="text" placeholder="Digite o novo nome do produto:" id="inputEditarNomeProduto"></label>
+                <label for="">Quantidade em estoque:<input type="number" id="inputQuantidadeEstoque"></label>
+                <button id="botaoConfirmarEdicao">Confirmar</button>
+                <button id="botaoCancelarEdicao">Cancelar</button>
+            </div>
+        </div>
+        <div id="modalAdicionarProduto">
+            <div id="cardAdicionarProduto">
+                <label for="">Nome do produto:<input type="text" id="inputCadastrarNomeProduto"></label>
+                <label for="">Quantidade em estoque:<input type="number" id="inputCadastrarQuantidadeEstoque"></label>
+                <button id="botaoCadastrarProduto">Cadastrar</button>
+                <button id="botaoCancelar">Cancelar</button>
+            </div>
+        </div>
     </main>
 
 </body>
